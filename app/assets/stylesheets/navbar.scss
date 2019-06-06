@@ -1,8 +1,20 @@
 .navbar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  background-color: #eeeeee;
+  height: 60px;
+  padding-left: 10px;
 }
 
 .logo {
   color: #469589;
+  font-size: 24px;
+  font-style: bold;
+}
+
+.session-option-buttons {
+  padding: 10px;
+  font-size: 16px;
+  color: #333;
 }
