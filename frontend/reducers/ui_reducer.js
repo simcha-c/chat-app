@@ -1,13 +1,9 @@
+import { combineReducers } from 'redux';
+import modal from './modal_reducer';
 // import { merge } from 'lodash';
 
-const uiReducer = (state = {}, action) => {
-  Object.freeze(state);
-
-  switch (action.type) {
-
-    default:
-      return state;
-  }
-};
+const uiReducer = combineReducers({
+  modal
+});
 
 export default uiReducer;

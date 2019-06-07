@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { signup, login } from '../../actions/session_actions';
+import { openModal } from '../../actions/modal_actions';
 
 class Navbar extends React.Component {
 
@@ -9,8 +9,14 @@ class Navbar extends React.Component {
       <nav className="navbar">
         <span className="logo">LOGO</span>
         <div>
-          <button className="session-option-buttons">Sign Up</button>
-          <button className="session-option-buttons">Log In</button>
+          <button className="session-option-buttons"
+            onClick={() => this.props.openModal('signup')}>
+            Sign Up
+          </button>
+          <button className="session-option-buttons"
+            onClick={() => this.props.openModal('login')}>
+            Log In
+          </button>
         </div>
       </nav>
     )
@@ -25,8 +31,7 @@ const msp = (state) => {
 
 const mdp = (dispatch) => {
   return {
-    // signup: (user) => dispatch(signup(user)),
-    // login: (user) => dispatch(login(user)),
+    openModal: (modal) => dispatch(openModal(modal)),
   }
 }
 
