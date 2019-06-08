@@ -1,4 +1,5 @@
 import * as sessionApiUtil from '../util/session_api_util';
+import { receiveErrors, clearErrors } from './modal_actions';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
@@ -18,7 +19,9 @@ const logoutCurrentUser = function() {
 
 export const signup = user => dispatch => {
   return sessionApiUtil.signupUser(user)
-    .then(res => dispatch(receiveCurrentUser(res)));
+    .then(res => dispatch(receiveCurrentUser(res)), ({ responseJSON }) => {
+      dispatch(receiveErrors('signup', responseJSON));
+    });
 };
 
 export const login = user => dispatch => {

@@ -8,6 +8,13 @@
   box-sizing: border-box;
 }
 
+.session-form h1 {
+  font-size: 30px;
+  font-weight: normal;
+  margin-top: -20px;
+  margin-bottom: 10px;
+}
+
 .session-info {
   display: flex;
   flex-direction: column;
