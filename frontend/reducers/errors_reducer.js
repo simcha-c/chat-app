@@ -3,7 +3,7 @@ import { CLOSE_MODAL, OPEN_MODAL } from '../actions/modal_actions';
 
 const defaultState = {
     type: null,
-    errors: []
+    errors: {},
 };
 
 const errorsReducer = (state = defaultState, action) => {

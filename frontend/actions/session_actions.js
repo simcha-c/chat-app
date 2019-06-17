@@ -20,14 +20,32 @@ const logoutCurrentUser = function() {
 export const signup = user => dispatch => {
   return sessionApiUtil.signupUser(user)
     .then(res => dispatch(receiveCurrentUser(res)), ({ responseJSON }) => {
-      dispatch(receiveErrors('signup', responseJSON));
+      const firstErr = responseJSON[0].slice(0, 9);
+      let userErr, passErr;
+      if (firstErr === 'Username') {
+        userErr = responseJSON[0];
+      } else if (firstErr === 'Password') {
+        passErr = responseJSON[0];
+      } if (responseJSON.length > 1) {
+        const secondErr = responseJSON[1].slice(0, 9);
+        if (secondErr === 'Password') {
+          passErr = responseJSON[1];
+        }
+      }
+
+      errors = {
+        username: userErr || '',
+        password: passErr || '',
+      };
+      dispatch(receiveErrors('signup', errors));
     });
 };
 
 export const login = user => dispatch => {
   return sessionApiUtil.loginUser(user)
     .then(res => dispatch(receiveCurrentUser(res)), ({ responseJSON }) => {
-      dispatch(receiveErrors('login', responseJSON));
+      const errors = { login: 'Invalid Credentials' };
+      dispatch(receiveErrors('login', errors));
     });
 };
 

@@ -5,9 +5,9 @@ import SessionForm from './session_form';
 
 const msp = (state) => {
   const modal = state.ui.modal === 'signup' ? 'SIGN UP' : 'LOG IN';
-
   return {
     modal,
+    errors: state.ui.errors.errors,
   };
 };
 
