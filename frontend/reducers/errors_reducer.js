@@ -1,5 +1,5 @@
 import { CLEAR_ERRORS, RECEIVE_ERRORS } from '../actions/error_actions';
-import { CLOSE_MODAL } from '../actions/modal_actions';
+import { CLOSE_MODAL, OPEN_MODAL } from '../actions/modal_actions';
 
 const defaultState = {
     type: null,
@@ -19,6 +19,7 @@ const errorsReducer = (state = defaultState, action) => {
 
     case CLEAR_ERRORS:
     case CLOSE_MODAL:
+    case OPEN_MODAL:
       return defaultState;
 
     default:
