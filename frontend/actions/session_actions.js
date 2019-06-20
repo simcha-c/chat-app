@@ -20,23 +20,7 @@ const logoutCurrentUser = function() {
 export const signup = user => dispatch => {
   return sessionApiUtil.signupUser(user)
     .then(res => dispatch(receiveCurrentUser(res)), ({ responseJSON }) => {
-      const firstErr = responseJSON[0].slice(0, 9);
-      let userErr, passErr;
-      if (firstErr === 'Username') {
-        userErr = responseJSON[0];
-      } else if (firstErr === 'Password') {
-        passErr = responseJSON[0];
-      } if (responseJSON.length > 1) {
-        const secondErr = responseJSON[1].slice(0, 9);
-        if (secondErr === 'Password') {
-          passErr = responseJSON[1];
-        }
-      }
-
-      errors = {
-        username: userErr || '',
-        password: passErr || '',
-      };
+      const errors = getErrors(responseJSON);
       dispatch(receiveErrors('signup', errors));
     });
 };
@@ -52,4 +36,24 @@ export const login = user => dispatch => {
 export const logout = () => dispatch => {
   return sessionApiUtil.logoutUser()
     .then(() => dispatch(logoutCurrentUser()));
+};
+
+
+const getErrors = (responseJSON) => {
+  const firstErr = responseJSON[0].slice(0, 8);
+  let userErr, passErr;
+  if (firstErr === 'Username') {
+    userErr = responseJSON[0];
+  } else if (firstErr === 'Password') {
+    passErr = responseJSON[0];
+  } if (responseJSON.length > 1) {
+    const secondErr = responseJSON[1].slice(0, 8);
+    if (secondErr === 'Password') {
+      passErr = responseJSON[1];
+    }
+  }
+  return {
+    username: userErr || '',
+    password: passErr || '',
+  };
 };
