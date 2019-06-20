@@ -41,8 +41,14 @@
   min-height: 20%;
 }
 
-label.session-error {
+.session-input:focus {
+  border: 1px solid #EDC170;
+}
+
+.session-errors {
   color: red;
+  margin-top: -15px;
+  margin-bottom: 20px;
 }
 
 input.session-error {
@@ -52,7 +58,6 @@ input.session-error {
 .session-info .session-input:last-child {
   margin-bottom: 15px;
 }
-
 
 .session-submit {
   background-color: #469589;

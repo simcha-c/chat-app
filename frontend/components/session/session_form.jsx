@@ -45,6 +45,7 @@ class SessionForm extends React.Component {
             type="text" 
             onChange={this.handleChange('username')} 
             value={this.state.username}/>
+          <p className="session-errors">{errors.username}</p>
 
           <label
             className={`session-label ${errors.password || loginErrors ? 'session-error' : ''}`}>
@@ -55,6 +56,8 @@ class SessionForm extends React.Component {
             type="password" 
             onChange={this.handleChange('password')} 
             value={this.state.password}/>
+          <p className="session-errors">{errors.password}</p>
+
         <input className="session-submit" type="submit" value={this.props.modal}/>
         </section>
 
