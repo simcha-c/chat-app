@@ -31,11 +31,9 @@ class SessionForm extends React.Component {
     const loginErrors = errors.login;
     return (
       <form className="session-form" onSubmit={this.handleSubmit}>
-
-        <div>{loginErrors}</div>
-
         <section className="session-info">
           <h1>{this.props.modal}</h1>
+          <p className={`session-label ${errors.username || loginErrors ? 'session-error' : ''}`}>{loginErrors}</p>
           <label 
             className={`session-label ${errors.username || loginErrors ? 'session-error' : ''}`}>
             Username:
@@ -58,7 +56,7 @@ class SessionForm extends React.Component {
             value={this.state.password}/>
           <p className="session-errors">{errors.password}</p>
 
-        <input className="session-submit" type="submit" value={this.props.modal}/>
+          <input className="session-submit" type="submit" value={this.props.modal}/>
         </section>
 
       </form>
