@@ -1,4 +1,5 @@
 import React from 'react';
+import SwitchSession from './switch_session'
 
 class SessionForm extends React.Component {
 
@@ -57,10 +58,11 @@ class SessionForm extends React.Component {
           <p className="session-errors">{errors.password}</p>
 
           <input className="session-submit" type="submit" value={this.props.modal}/>
-        </section>
-
-      </form>
-    )
+          <SwitchSession props={this.props}></SwitchSession>
+          </section>
+          
+          </form>
+          )
   }
 }
 
