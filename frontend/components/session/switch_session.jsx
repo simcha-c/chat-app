@@ -18,7 +18,9 @@ const SwitchSession = ({props}) => {
   return (
     <React.Fragment>
       <h3 className='switch-session-text'>{text}</h3>
-      <h3 className='switch-session-button' type='submit' onClick={() => props.openModal(otherModal)}>{buttonText}</h3>
+      <h3 className='switch-session-button' type='submit' onClick={() => props.openModal(otherModal)}>
+        <span className='switch-session-span'>{buttonText}</span>
+      </h3>
     </React.Fragment>
   )
 }
