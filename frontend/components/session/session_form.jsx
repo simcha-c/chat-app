@@ -59,9 +59,8 @@ class SessionForm extends React.Component {
 
           <input className="session-submit" type="submit" value={this.props.modal}/>
           <SwitchSession props={this.props}></SwitchSession>
-          </section>
-          
-          </form>
+        </section>
+      </form>
           )
   }
 }
