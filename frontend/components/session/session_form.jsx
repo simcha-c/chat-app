@@ -27,6 +27,12 @@ class SessionForm extends React.Component {
       .then(this.props.closeModal);
   }
 
+  clearState() {
+    return (cb) => {
+      this.setState({username: '', password: ''}, cb);
+    };
+  }
+
   render() {
     const errors = this.props.errors;
     const loginErrors = errors.login;
@@ -58,7 +64,7 @@ class SessionForm extends React.Component {
           <p className="session-errors">{errors.password}</p>
 
           <input className="session-submit" type="submit" value={this.props.modal}/>
-          <SwitchSession modal={this.props.modal} openModal={this.props.openModal}></SwitchSession>
+          <SwitchSession modal={this.props.modal} clearState={this.clearState()} openModal={this.props.openModal}></SwitchSession>
         </section>
       </form>
           )
