@@ -1,13 +1,13 @@
 import React from 'react';
 
-const SwitchSession = ({props}) => {
+const SwitchSession = (props) => {
   let otherModal;
   let text;
   let buttonText;
 
   if (props.modal === 'SIGN UP') {
     otherModal = 'login';
-    text = 'Already a user?'
+    text = 'Already a user?';
     buttonText = 'Log In';
   } else {
     otherModal = 'signup';

@@ -58,7 +58,7 @@ class SessionForm extends React.Component {
           <p className="session-errors">{errors.password}</p>
 
           <input className="session-submit" type="submit" value={this.props.modal}/>
-          <SwitchSession props={this.props}></SwitchSession>
+          <SwitchSession modal={this.props.modal} openModal={this.props.openModal}></SwitchSession>
         </section>
       </form>
           )
