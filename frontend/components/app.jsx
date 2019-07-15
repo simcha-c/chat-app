@@ -1,8 +1,13 @@
 import React from 'react';
+import Navbar from './navbar/navbar';
+import Modal from './modal/modal';
 
 const App = (props) => {
   return (
-    <h1>Hello from app!</h1>
+    <>
+      <Modal />
+      <Navbar />
+    </>
   )
 };
 
