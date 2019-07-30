@@ -1,12 +1,13 @@
 import React from 'react';
-import Navbar from './navbar/navbar';
+import AuthNavbar from './navbar/navbar';
 import Modal from './modal/modal';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = (props) => {
   return (
     <>
       <Modal />
-      <Navbar />
+      <AuthRoute path="/home" component={AuthNavbar} />
     </>
   )
 };
