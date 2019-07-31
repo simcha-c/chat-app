@@ -1,9 +1,11 @@
 import React from 'react';
+import ChatMessages from './chat_messages/chat_messages';
 
-const Chat = function(props) {
+function Chat(props) {
   return (
-    <section className="chat">
-      <h1>Chat</h1>
+    <section className="chat-section">
+
+      <ChatMessages />
     </section>
   )
 }

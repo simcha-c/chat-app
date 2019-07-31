@@ -25,8 +25,8 @@ class SessionForm extends React.Component {
     event.preventDefault();
     this.props.handleSubmit(this.props.modal, this.state)
       .then(() => {
+        this.props.history.push('/chats');
         this.props.closeModal();
-        this.props.history.push('/');
       });
   }
 

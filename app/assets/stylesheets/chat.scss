@@ -1,4 +1,9 @@
-.chat {
-  width: 80%;
+.chat-section {
+  display: flex;
+  width: 100%;
+}
+
+.chat-messages-section {
+  width: 60%;
   background-color: whitesmoke;
 }
