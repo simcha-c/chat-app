@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { login, signup } from '../../actions/session_actions';
 import { closeModal, openModal } from '../../actions/modal_actions';
 import SessionForm from './session_form';
+import { withRouter } from 'react-router-dom';
 
 const msp = (state) => {
   const modal = state.ui.modal === 'signup' ? 'SIGN UP' : 'LOG IN';
@@ -19,4 +20,4 @@ const mdp = (dispatch) => {
   };
 };
 
-export default connect(msp, mdp)(SessionForm);
+export default withRouter(connect(msp, mdp)(SessionForm));

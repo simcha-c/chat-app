@@ -1,5 +1,5 @@
 import React from 'react';
-import SwitchSession from './switch_session'
+import SwitchSession from './switch_session';
 
 class SessionForm extends React.Component {
 
@@ -24,7 +24,10 @@ class SessionForm extends React.Component {
   handleSubmit() {
     event.preventDefault();
     this.props.handleSubmit(this.props.modal, this.state)
-      .then(this.props.closeModal);
+      .then(() => {
+        this.props.closeModal();
+        this.props.history.push('/');
+      });
   }
 
   clearState() {
